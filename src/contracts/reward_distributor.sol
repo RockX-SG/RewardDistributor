@@ -64,6 +64,13 @@ contract WeightedDistribution is Initializable, OwnableUpgradeable, ReentrancyGu
     }
 
     /**
+     * @dev get rwards
+     */
+    function getRewards(address account) external view returns(uint256 rewards) { 
+        return address(this).balance * accountWeights[account] / totalWeights;
+   } 
+
+    /**
      * @dev check accounts
      */
     function getAccounts() public view returns (address[] memory) { return accounts; }

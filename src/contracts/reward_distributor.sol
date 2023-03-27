@@ -88,7 +88,7 @@ contract WeightedDistribution is Initializable, OwnableUpgradeable, ReentrancyGu
     /**
      * @dev distribute ethers, callable by anyone
      */
-    function distribute() public {
+    function distribute() public nonReentrant {
         require(accounts.length > 0, "No accounts to distribute to");
         uint256 totalWeight = totalWeights;
         require(totalWeight > 0, "Total weight is zero");

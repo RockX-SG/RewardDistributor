@@ -66,26 +66,20 @@ contract WeightedDistribution is Initializable, OwnableUpgradeable, ReentrancyGu
     /**
      * @dev check accounts
      */
-    function getAccounts() public view returns (address[] memory) {
-        return accounts;
-    }
+    function getAccounts() public view returns (address[] memory) { return accounts; }
 
     /**
      * @dev return weight for an account
      */
-    function getWeight(address account) public view returns (uint256) {
-        return accountWeights[account];
-    }
+    function getWeight(address account) public view returns (uint256) { return accountWeights[account]; }
 
     /**
      * @dev get total weight
      */
-    function getTotalWeight() public view returns (uint256) {
-        return totalWeights;
-    }
+    function getTotalWeight() public view returns (uint256) { return totalWeights; }
 
     /**
-     * @dev distribute ethers
+     * @dev distribute ethers, callable by anyone
      */
     function distribute() public {
         require(accounts.length > 0, "No accounts to distribute to");
